@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django CRUD</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        background-color: palevioletred;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .form-container {
+        background-color: rgba(186, 105, 140, 0.9);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+      }
+      .form-container h1 {
+        margin-bottom: 20px;
+        color: black;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .form-container p {
+        color: white;
+      }
+      .form-container button {
+        width: 80%;
+        margin-top: 20px;
+        background-color: rgb(184, 44, 90); /* Cambiar color del botón */
+        color: black;
+        border: none;
+      }
+      .form-container button:hover {
+        background-color: rgb(194, 31, 194); /* Color al pasar el mouse */
+      }
+      .form-container label {
+        display: block;
+        margin-top: 15px;
+        color: black;
+        font-weight: bold;
+      }
+      .form-container input,
+      .form-container select,
+      .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid rgb(88, 75, 201);
+      }
+      .form-container button[type="submit"] {
+        width: 100%;
+        margin-top: 20px;
+        background-color: #6c63ff;
+        color: black;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+      .form-container button[type="submit"]:hover {
+        background-color: #af1493;
+      }
+      .form-container input[type="text"],
+      .form-container input[type="email"],
+      .form-container textarea,
+      .form-container select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid rgb(101, 101, 206);
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+      .form-container .alert-danger {
+        margin-top: 20px;
+      }
+      .form-text, .invalid-feedback {
+        display: none; /* Ocultar textos de ayuda y errores */
+      }
+      .product-image {
+        max-height: 150px;
+        object-fit: cover;
+      }
+      .list-group-item {
+        margin-bottom: 15px;
+        padding: 20px;
+        background-color: rgba(186, 105, 140, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        color: white;
+      }
+      .list-group-item h4, .list-group-item p {
+        color: black;
+      }
+      .list-group-item .btn-primary {
+        background-color: rgb(184, 44, 90);
+        border: none;
+      }
+      .list-group-item .btn-primary:hover {
+        background-color: rgb(194, 31, 194);
+      }
+      h1.text-center {
+        color: black;
+      }
+      .card {
+        border: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      .card-title {
+        color: #6c63ff;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .card-body {
+        padding: 30px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #6c63ff;
+        font-weight: bold;
+      }
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      .btn-primary {
+        background-color: #6c63ff;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #af1493;
+      }
+      
+    </style>
+  </head>
+  <body>
+    {% include '_navbar.html' %}
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

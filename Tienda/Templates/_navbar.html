@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark ">
+    <div id="divdav" class="container">
+        <a class="navbar-brand" href="/">Tienda de Ropa Femenina</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div  class="collapse navbar-collapse lupe" id="navbarNav divdav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Inicio</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'products' %}" class="nav-link">Mis Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'create_product' %}" class="nav-link">Crear Producto</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'signout' %}" class="nav-link">Salir</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'signin' %}" class="nav-link">Ingresar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'signup' %}" class="nav-link">Registrarse</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

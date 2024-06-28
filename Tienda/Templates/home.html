@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    #tit{
+        color: black;
+    }
+    .tituloproducto{
+    color: black;
+    margin: 3%;
+    }
+    #img{
+        width: 100;
+        height: 100;
+    }
+</style>
+
+<div class="d-flex justify-content-center caja">
+  <div class="container text-center caja login-container ">
+    <h1 id="tit" class="display-4 mb-4">¡Bienvenidos, espero disfruten su interacion aqui!</h1>
+    <hr>
+    <div class="row mt-4 ">
+      <h2 class="tituloproducto">Nuestros productos</h2>
+      {% for product in products %}
+      <div class="col-md-4 mb-4 ">
+        <div class="card contenedor2">
+          <div class="card-body contenedor2">
+            <img src="{{ product.image.url }}" class="card-img-top imagen" alt="{{ product.title }}">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">Precio: ${{ product.price }}</p>
+            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">comprar</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
